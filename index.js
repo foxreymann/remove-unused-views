@@ -31,12 +31,12 @@ function grep(view) {
     const child = exec(cmd, options,
       (error, stdout, stderr) => {
         if(!stdout.length && error) {
-            remove(view);
+            removeView(view);
         }
     });
 }
 
-function remove(view) {
+function removeView(view) {
     var cmd = 'rm ' + view,
         viewName = view.substring(38, view.indexOf('.html'));
 
