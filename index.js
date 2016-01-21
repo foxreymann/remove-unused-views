@@ -32,13 +32,14 @@ function grep(view) {
       (error, stdout, stderr) => {
         if(!stdout.length && error) {
             removeView(view);
+            removeTemplate(view);
         }
     });
 }
 
 function removeView(view) {
     var cmd = 'rm ' + view,
-        viewName = view.substring(38, view.indexOf('.html'));
+        viewName = view.substring(38, view.indexOf('.js'));
 
     const child = exec(cmd,
       (error, stdout, stderr) => {
@@ -46,7 +47,17 @@ function removeView(view) {
           removedCounter++;
           removedNames = removedNames + viewName + '\n';
         }
-        done();
+//        done();
+    });
+}
+
+function removeTemplate(view) {
+    var cmd = 'rm ',
+        template = view.substring(0, view.indexOf('.js')).replace(/\/srcipts\/view/, /\/templates/) + '.html';
+
+console.log(template);
+    const child = exec(cmd + template,
+      (error, stdout, stderr) => {
     });
 }
 
