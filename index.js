@@ -53,7 +53,7 @@ function removeView(view) {
 
 function removeTemplate(view) {
     var template = view.substring(0, view.indexOf('.js')).replace(/\/srcipts\/view/, /\/templates/) + '.html',
-        cmd = 'rm ';
+        cmd = 'rm ' + template;
 
     const child = exec(cmd,
       (error, stdout, stderr) => {
