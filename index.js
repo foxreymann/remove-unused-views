@@ -21,12 +21,13 @@ walker.on('end', function() {
 });
 
 function grep(view) {
-    var search = view.substring(38, view.indexOf('.html')) + '\'',
-        dir = '../roxhill-docker/src/roxhill-app/src/scripts/views',
+    var search = view.substring(46, view.indexOf('.js')) + '\'',
+        dir = '../roxhill-docker/src/roxhill-app/src/scripts',
         cmd = 'git grep "' + search + '"',
         options = {
           cwd: dir
         };
+console.log(search);
 
     const child = exec(cmd, options,
       (error, stdout, stderr) => {
@@ -37,9 +38,9 @@ function grep(view) {
 }
 
 function remove(view) {
-    var cmd = 'ls ' + view,
+    var cmd = 'rm ' + view,
         viewName = view.substring(38, view.indexOf('.html'));
-
+/*
     const child = exec(cmd,
       (error, stdout, stderr) => {
         if(!error) {
@@ -48,6 +49,7 @@ function remove(view) {
         }
         done();
     });
+*/
 }
 
 function done() {
