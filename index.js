@@ -37,7 +37,7 @@ function grep(view) {
 }
 
 function remove(view) {
-    var cmd = 'rm ' + view,
+    var cmd = 'ls ' + view,
         viewName = view.substring(38, view.indexOf('.html'));
 
     const child = exec(cmd,
