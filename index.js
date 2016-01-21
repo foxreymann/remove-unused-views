@@ -47,16 +47,15 @@ function removeView(view) {
           removedCounter++;
           removedNames = removedNames + viewName + '\n';
         }
-//        done();
+        done();
     });
 }
 
 function removeTemplate(view) {
-    var cmd = 'rm ',
-        template = view.substring(0, view.indexOf('.js')).replace(/\/srcipts\/view/, /\/templates/) + '.html';
+    var template = view.substring(0, view.indexOf('.js')).replace(/\/srcipts\/view/, /\/templates/) + '.html',
+        cmd = 'rm ';
 
-console.log(template);
-    const child = exec(cmd + template,
+    const child = exec(cmd,
       (error, stdout, stderr) => {
     });
 }
