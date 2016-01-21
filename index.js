@@ -32,7 +32,6 @@ function grep(view) {
       (error, stdout, stderr) => {
         if(!stdout.length && error) {
             removeView(view);
-            removeTemplate(view);
         }
     });
 }
@@ -48,15 +47,6 @@ function removeView(view) {
           removedNames = removedNames + viewName + '\n';
         }
         done();
-    });
-}
-
-function removeTemplate(view) {
-    var template = view.substring(0, view.indexOf('.js')).replace(/\/srcipts\/view/, /\/templates/) + '.html',
-        cmd = 'rm ' + template;
-
-    const child = exec(cmd,
-      (error, stdout, stderr) => {
     });
 }
 
